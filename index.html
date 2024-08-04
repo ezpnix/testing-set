@@ -1,59 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome back, Jef</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black; /* Set background color to black */
-            color: white;
-        }
-        img {
-            max-width: 50%;
-            max-height: 50%;
-            object-fit: contain;
-        }
-        .search-bar {
-            margin-top: 20px;
-            padding: 10px;
-            border: 2px solid #4285F4; /* Set border color to blue */
-            border-radius: 20px; /* Rounded edges */
-            width: 300px;
-            background-color: #000000; /* Set background color to black */
-            color: white; /* Set text color to white */
-            transition: border-color 0.5s ease-in-out; /* Add transition */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="images/eye.gif" alt="Example GIF">
-    <form id="searchForm" action="" method="get" target="_blank">
-        <input type="search" name="q" placeholder="Search Google" class="search-bar" id="searchBar">
-    </form>
-
-    <script>
-        const searchBar = document.getElementById('searchBar');
-        const searchForm = document.getElementById('searchForm');
-        let isRed = true;
-
-        searchBar.addEventListener('input', function() {
-            // Check if the input starts with "http://" or "https://"
-            if (searchBar.value.startsWith('http://') || searchBar.value.startsWith('https://')) {
-                // Redirect to the URL
-                searchForm.action = searchBar.value;
-                searchForm.submit();
-            }
-        });
-
-        setInterval(() => {
-            searchBar.style.borderColor = isRed ? 'red' : 'white'; // Change border color
-            isRed = !isRed;
-        }, 1900); // Flicker every xxxx milliseconds
-    </script>
+    <div class="container">
+        <h1>Notes App</h1>
+        <form id="note-form">
+            <textarea id="note-input" placeholder="Enter your note here..."></textarea>
+            <button type="submit">Add Note</button>
+        </form>
+        <div id="notes-list"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
